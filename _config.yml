@@ -32,6 +32,10 @@ github_username:  amvd
 theme: jekyll-theme-hyde
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-gist
+
 paginate: 5
 
 # Exclude from processing.
