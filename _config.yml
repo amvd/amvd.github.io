@@ -30,7 +30,7 @@ twitter_username: nothingofit
 author:
   twitter: nothingofit
 github_username:  amvd
-lang: EN
+lang: en_US
 
 # Build settings
 theme: jekyll-theme-hyde
