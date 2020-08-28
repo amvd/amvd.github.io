@@ -20,13 +20,17 @@
 
 title: Updates
 email: this@armand.io
+tagline: Thoughts and stuff.
 description: >- # this means to ignore newlines until "baseurl:"
-  Thoughts and stuff.
+  Personal blog of Armand De Asis. Thoughtful, tech-informed, meandering, impatient.
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blog.armand.io" # the base hostname & protocol for your site, e.g. http://example.com
 version: 0.1
-# twitter_username: jekyllrb
+twitter_username: nothingofit
+author:
+  twitter: nothingofit
 github_username:  amvd
+lang: EN
 
 # Build settings
 theme: jekyll-theme-hyde
