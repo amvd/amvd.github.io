@@ -81,6 +81,11 @@ async function generate() {
                     fit: 'cover',
                     position: 'center'
                 })
+                .png({
+                    quality: 80,
+                    compressionLevel: 9,
+                    palette: true
+                })
                 .toFile(path.join(outputDir, 'og-image.png'));
             console.log('Generated og-image.png (1200x630, center-cropped)');
         }
