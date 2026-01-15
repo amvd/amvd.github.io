@@ -1,6 +1,7 @@
 <script lang="ts">
 	import "../app.css";
 	import { Menu, X } from "lucide-svelte";
+	import { config } from "$lib/config";
 	let { children } = $props();
 
 	let isMenuOpen = $state(false);
@@ -16,7 +17,7 @@
 			href="/"
 			class="text-xl font-bold text-slate-900 tracking-tight hover:opacity-70 transition-opacity"
 		>
-			amvd
+			{config.name.toLowerCase()}
 		</a>
 
 		<nav class="hidden md:flex gap-8">
@@ -79,7 +80,7 @@
 
 <footer class="max-w-[700px] mx-auto px-6 py-12 border-t border-slate-50">
 	<div class="flex justify-between items-center text-slate-400 text-xs">
-		<p>&copy; {new Date().getFullYear()} amvd.</p>
+		<p>&copy; {new Date().getFullYear()} {config.name.toLowerCase()}.</p>
 		<p>Built with SvelteKit & Tailwind</p>
 	</div>
 </footer>

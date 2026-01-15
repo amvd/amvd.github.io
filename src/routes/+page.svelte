@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { ArrowRight, Github, Twitter, Mail } from "lucide-svelte";
+  import { ArrowRight, Github, Twitter, Mail, Linkedin } from "lucide-svelte";
   import dayjs from "dayjs";
   import headshot from "$lib/assets/headshot.jpeg";
+  import { config } from "$lib/config";
 
   let { data } = $props();
   let featuredPost = $derived(data.posts[0]);
@@ -9,7 +10,7 @@
 </script>
 
 <svelte:head>
-  <title>Armand De Asis | Software Engineer</title>
+  <title>{config.title}</title>
 </svelte:head>
 
 <section class="max-w-[700px] mx-auto px-6 py-20 text-center">
@@ -21,11 +22,12 @@
     />
   </div>
 
-  <h1 class="text-4xl font-bold text-slate-900 mb-4 tracking-tight">Armand</h1>
+  <h1 class="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+    {config.name}
+  </h1>
 
   <p class="text-lg text-slate-600 mb-10 max-w-[500px] mx-auto leading-relaxed">
-    Software engineer exploring the intersection of AI, creative coding, and
-    high-performance web applications.
+    {config.description}
   </p>
 
   <div class="flex flex-wrap justify-center gap-4 mb-16">
@@ -44,28 +46,44 @@
   </div>
 
   <div class="flex justify-center gap-8 border-t border-slate-100 pt-10">
-    <a
-      href="https://github.com/amvd"
-      target="_blank"
-      rel="noreferrer"
-      class="text-slate-400 hover:text-slate-900 transition-colors"
-    >
-      <Github size={20} />
-    </a>
-    <a
-      href="https://twitter.com"
-      target="_blank"
-      rel="noreferrer"
-      class="text-slate-400 hover:text-slate-900 transition-colors"
-    >
-      <Twitter size={20} />
-    </a>
-    <a
-      href="mailto:hello@example.com"
-      class="text-slate-400 hover:text-slate-900 transition-colors"
-    >
-      <Mail size={20} />
-    </a>
+    {#if config.contact.github}
+      <a
+        href={config.contact.github}
+        target="_blank"
+        rel="noreferrer"
+        class="text-slate-400 hover:text-slate-900 transition-colors"
+      >
+        <Github size={20} />
+      </a>
+    {/if}
+    {#if config.contact.twitter}
+      <a
+        href={config.contact.twitter}
+        target="_blank"
+        rel="noreferrer"
+        class="text-slate-400 hover:text-slate-900 transition-colors"
+      >
+        <Twitter size={20} />
+      </a>
+    {/if}
+    {#if config.contact.linkedin}
+      <a
+        href={config.contact.linkedin}
+        target="_blank"
+        rel="noreferrer"
+        class="text-slate-400 hover:text-slate-900 transition-colors"
+      >
+        <Linkedin size={20} />
+      </a>
+    {/if}
+    {#if config.contact.email}
+      <a
+        href="mailto:{config.contact.email}"
+        class="text-slate-400 hover:text-slate-900 transition-colors"
+      >
+        <Mail size={20} />
+      </a>
+    {/if}
   </div>
 </section>
 

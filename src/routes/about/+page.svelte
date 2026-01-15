@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { Github, Twitter, Mail } from "lucide-svelte";
+  import { Github, Twitter, Mail, Linkedin } from "lucide-svelte";
+  import { config } from "$lib/config";
 </script>
 
 <svelte:head>
-  <title>About | amvd</title>
+  <title>About | {config.name}</title>
 </svelte:head>
 
 <section class="max-w-[700px] mx-auto px-6 py-20">
@@ -30,24 +31,38 @@
     </p>
 
     <div class="flex flex-wrap gap-4 mt-12 not-prose">
-      <a
-        href="https://github.com/amvd"
-        class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
-      >
-        <Github size={18} /> GitHub
-      </a>
-      <a
-        href="https://twitter.com"
-        class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
-      >
-        <Twitter size={18} /> Twitter
-      </a>
-      <a
-        href="mailto:hello@example.com"
-        class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
-      >
-        <Mail size={18} /> Contact
-      </a>
+      {#if config.contact.github}
+        <a
+          href={config.contact.github}
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+        >
+          <Github size={18} /> GitHub
+        </a>
+      {/if}
+      {#if config.contact.twitter}
+        <a
+          href={config.contact.twitter}
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+        >
+          <Twitter size={18} /> Twitter
+        </a>
+      {/if}
+      {#if config.contact.linkedin}
+        <a
+          href={config.contact.linkedin}
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+        >
+          <Linkedin size={18} /> LinkedIn
+        </a>
+      {/if}
+      {#if config.contact.email}
+        <a
+          href="mailto:{config.contact.email}"
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+        >
+          <Mail size={18} /> Contact
+        </a>
+      {/if}
     </div>
   </div>
 </section>
