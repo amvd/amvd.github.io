@@ -3,10 +3,13 @@
 	import { Menu, X } from "lucide-svelte";
 	import { config } from "$lib/config";
 	import { slide } from "svelte/transition";
+	import SEO from "$lib/components/SEO.svelte";
 	let { children } = $props();
 
 	let isMenuOpen = $state(false);
 </script>
+
+<SEO />
 
 <a
 	href="#main-content"
@@ -44,6 +47,11 @@
 				href="/about"
 				class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
 				>About</a
+			>
+			<a
+				href="/resume"
+				class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+				>Resume</a
 			>
 		</nav>
 
@@ -85,6 +93,12 @@
 				onclick={() => (isMenuOpen = false)}
 				class="text-sm font-medium text-slate-500 hover:text-slate-900 focus-visible:outline-blue-500 px-2 py-1 rounded"
 				>About</a
+			>
+			<a
+				href="/resume"
+				onclick={() => (isMenuOpen = false)}
+				class="text-sm font-medium text-slate-500 hover:text-slate-900 focus-visible:outline-blue-500 px-2 py-1 rounded"
+				>Resume</a
 			>
 		</nav>
 	{/if}

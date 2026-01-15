@@ -9,6 +9,7 @@ const manifestPath = path.join(outputDir, 'site.webmanifest');
 // Dynamically find the favicon source file
 const files = fs.readdirSync(assetsDir);
 const faviconFile = files.find(f => f.toLowerCase().startsWith('favicon.'));
+const ogImageFile = files.find(f => f.toLowerCase().startsWith('og-image.'));
 
 if (!faviconFile) {
     console.error(`Error: No file starting with "favicon" found in ${assetsDir}`);
@@ -16,8 +17,16 @@ if (!faviconFile) {
     process.exit(1);
 }
 
-const input = path.join(assetsDir, faviconFile);
-console.log(`Using ${input} as source for icon generation.`);
+const inputFavicon = path.join(assetsDir, faviconFile);
+console.log(`Using ${inputFavicon} as source for icon generation.`);
+
+let inputOgImage = null;
+if (ogImageFile) {
+    inputOgImage = path.join(assetsDir, ogImageFile);
+    console.log(`Using ${inputOgImage} as source for OG image generation.`);
+} else {
+    console.warn(`Warning: No file starting with "og-image" found in ${assetsDir}. OG image will not be generated.`);
+}
 
 const sizes = [
     { name: 'favicon-32x32.png', size: 32 },
@@ -52,7 +61,7 @@ async function generate() {
                 `<svg><circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" /></svg>`
             );
 
-            await sharp(input)
+            await sharp(inputFavicon)
                 .resize(size, size, {
                     fit: 'cover',
                     position: 'center'
@@ -65,13 +74,24 @@ async function generate() {
             console.log(`Generated ${name} (circular, center-cropped)`);
         }
 
+        // Generate OG image if source exists
+        if (inputOgImage) {
+            await sharp(inputOgImage)
+                .resize(1200, 630, {
+                    fit: 'cover',
+                    position: 'center'
+                })
+                .toFile(path.join(outputDir, 'og-image.png'));
+            console.log('Generated og-image.png (1200x630, center-cropped)');
+        }
+
         // Generate .ico
         const icoSize = 32;
         const circleMaskIco = Buffer.from(
             `<svg><circle cx="${icoSize / 2}" cy="${icoSize / 2}" r="${icoSize / 2}" /></svg>`
         );
 
-        await sharp(input)
+        await sharp(inputFavicon)
             .resize(icoSize, icoSize, {
                 fit: 'cover',
                 position: 'center'

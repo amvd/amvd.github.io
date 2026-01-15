@@ -3,6 +3,7 @@ layout: post
 title: A Video Player, Svelte, and Lodash
 date: 2020-09-01 15:48:40.825302 -0400
 categories: svelte javascript
+description: Rebuilding a web app in Svelte
 ---
 
 I finally reconstructed the base functionality of the video player web app I've been trying to build, formerly in React, now in Svelte.

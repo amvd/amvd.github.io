@@ -3,6 +3,7 @@ layout: post
 title: The Crossroads at a New Project
 date: 2020-09-02 18:01:47.793547 -0400
 categories: ruby rails elixir phoenix
+description: The age-old decision of what stack to use
 ---
 
 I'm once again at the crossroads of a new project and deciding what to build it in.
