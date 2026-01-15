@@ -21,3 +21,8 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Generated Icons
+static/favicon*
+static/apple-touch-icon.png
+static/android-chrome-*.png

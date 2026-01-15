@@ -4,10 +4,11 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
+		"dev": "npm run generate-icons && vite dev",
+		"build": "npm run generate-icons && vite build",
 		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
+		"prepare": "npm run generate-icons && (svelte-kit sync || echo '')",
+		"generate-icons": "node scripts/generate-icons.js",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
@@ -25,6 +26,7 @@
 		"lucide-svelte": "^0.562.0",
 		"mdsvex": "^0.12.6",
 		"postcss": "^8.5.6",
+		"sharp": "^0.34.5",
 		"svelte": "^5.45.6",
 		"svelte-check": "^4.3.4",
 		"tailwindcss": "^4.1.18",
