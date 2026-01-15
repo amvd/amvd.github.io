@@ -17,13 +17,13 @@
   <div class="mb-10 inline-block">
     <img
       src={headshot}
-      alt="Headshot of {config.name}"
+      alt="Headshot of {config.fullName}"
       class="w-48 h-48 rounded-full mx-auto border-2 border-slate-100 p-1 bg-white shadow-sm"
     />
   </div>
 
   <h1 class="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-    {config.name}
+    {config.fullName}
   </h1>
 
   <p class="text-lg text-slate-600 mb-10 max-w-[500px] mx-auto leading-relaxed">
@@ -83,7 +83,7 @@
       <a
         href="mailto:{config.contact.email}"
         class="text-slate-400 hover:text-slate-900 transition-colors focus-visible:outline-blue-500 rounded p-1"
-        aria-label="Email {config.name}"
+        aria-label="Email {config.fullName}"
       >
         <Mail size={20} />
       </a>

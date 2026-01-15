@@ -1,5 +1,6 @@
 export const config = {
-    name: "Armand De Asis",
+    name: "amvd",
+    fullName: "Armand De Asis",
     title: "Software Engineer | amvd",
     description: "Software engineer exploring the intersection of AI, creative coding, and high-performance web applications.",
     contact: {

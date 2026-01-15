@@ -62,7 +62,7 @@
         <a
           href="mailto:{config.contact.email}"
           class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all focus-visible:outline-blue-500"
-          aria-label="Email {config.name}"
+          aria-label="Email {config.fullName}"
         >
           <Mail size={18} /> Contact
         </a>

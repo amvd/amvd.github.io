@@ -36,7 +36,28 @@ categories:
 description: 
 ---
 
-Start writing your post here...
+Introduction paragraph goes here...
+
+## Section Heading
+
+Detailed content for this section.
+
+- Bullet point one
+- Bullet point two
+
+:::: figure
+![Alt text](image-slug)
+::: caption
+A meaningful caption for the image.
+:::
+::::
+
+> A thoughtful quote or callout.
+
+\`\`\`javascript
+// Some code example
+console.log("Hello, World!");
+\`\`\`
 `;
 
 if (fs.existsSync(filepath)) {

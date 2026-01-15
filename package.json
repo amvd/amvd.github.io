@@ -37,6 +37,8 @@
 	},
 	"dependencies": {
 		"@types/markdown-it": "^14.1.2",
-		"markdown-it": "^14.1.0"
+		"@types/markdown-it-container": "^2.0.11",
+		"markdown-it": "^14.1.0",
+		"markdown-it-container": "^4.0.0"
 	}
 }
