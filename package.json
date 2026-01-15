@@ -9,6 +9,7 @@
 		"preview": "vite preview",
 		"prepare": "npm run generate-icons && (svelte-kit sync || echo '')",
 		"generate-icons": "node scripts/generate-icons.js",
+		"new-post": "node scripts/new-post.js",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
