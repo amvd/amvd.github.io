@@ -47,4 +47,34 @@
     <meta name="twitter:site" content={config.twitterHandle} />
     <meta name="twitter:creator" content={config.twitterHandle} />
   {/if}
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {@html JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": type === "article" ? "BlogPosting" : "Person",
+      name: type === "article" ? title : config.fullName,
+      description: description,
+      url: canonical,
+      image: fullImage,
+      ...(type === "article" && {
+        author: {
+          "@type": "Person",
+          name: config.fullName,
+          url: config.url,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: config.name,
+          logo: {
+            "@type": "ImageObject",
+            url: `${config.url}${config.ogImage}`,
+          },
+        },
+      }),
+      ...(type !== "article" && {
+        sameAs: [config.contact.github, config.contact.linkedin].filter(Boolean),
+      }),
+    })}
+  </script>
 </svelte:head>
