@@ -18,6 +18,11 @@
     line-height: 1.6;
   }
 
+  /* Improve focus visibility for keyboard users */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500 transition-all;
+  }
+
   h1, h2, h3, h4 {
     @apply font-bold leading-tight text-slate-900;
   }

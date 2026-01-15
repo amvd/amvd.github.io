@@ -2,9 +2,22 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
-const input = 'src/lib/assets/favicon.png';
+const assetsDir = 'src/lib/assets';
 const outputDir = 'static';
 const manifestPath = path.join(outputDir, 'site.webmanifest');
+
+// Dynamically find the favicon source file
+const files = fs.readdirSync(assetsDir);
+const faviconFile = files.find(f => f.toLowerCase().startsWith('favicon.'));
+
+if (!faviconFile) {
+    console.error(`Error: No file starting with "favicon" found in ${assetsDir}`);
+    console.error('Please ensure you have a file like favicon.png, favicon.jpg, or favicon.svg.');
+    process.exit(1);
+}
+
+const input = path.join(assetsDir, faviconFile);
+console.log(`Using ${input} as source for icon generation.`);
 
 const sizes = [
     { name: 'favicon-32x32.png', size: 32 },
@@ -28,11 +41,6 @@ const generatedIcons = [
 ];
 
 async function generate() {
-    if (!fs.existsSync(input)) {
-        console.error(`Input file not found: ${input}`);
-        process.exit(1);
-    }
-
     if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
     }
@@ -40,17 +48,40 @@ async function generate() {
     try {
         // Generate PNGs
         for (const { name, size } of sizes) {
+            const circleMask = Buffer.from(
+                `<svg><circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" /></svg>`
+            );
+
             await sharp(input)
-                .resize(size, size)
+                .resize(size, size, {
+                    fit: 'cover',
+                    position: 'center'
+                })
+                .composite([{
+                    input: circleMask,
+                    blend: 'dest-in'
+                }])
                 .toFile(path.join(outputDir, name));
-            console.log(`Generated ${name}`);
+            console.log(`Generated ${name} (circular, center-cropped)`);
         }
 
         // Generate .ico
+        const icoSize = 32;
+        const circleMaskIco = Buffer.from(
+            `<svg><circle cx="${icoSize / 2}" cy="${icoSize / 2}" r="${icoSize / 2}" /></svg>`
+        );
+
         await sharp(input)
-            .resize(32, 32)
+            .resize(icoSize, icoSize, {
+                fit: 'cover',
+                position: 'center'
+            })
+            .composite([{
+                input: circleMaskIco,
+                blend: 'dest-in'
+            }])
             .toFile(path.join(outputDir, 'favicon.ico'));
-        console.log('Generated favicon.ico');
+        console.log('Generated favicon.ico (circular, center-cropped)');
 
         // Merge webmanifest
         let manifest = {};

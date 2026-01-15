@@ -34,7 +34,8 @@
       {#if config.contact.github}
         <a
           href={config.contact.github}
-          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all focus-visible:outline-blue-500"
+          aria-label="GitHub Profile"
         >
           <Github size={18} /> GitHub
         </a>
@@ -42,7 +43,8 @@
       {#if config.contact.twitter}
         <a
           href={config.contact.twitter}
-          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all focus-visible:outline-blue-500"
+          aria-label="Twitter Profile"
         >
           <Twitter size={18} /> Twitter
         </a>
@@ -50,7 +52,8 @@
       {#if config.contact.linkedin}
         <a
           href={config.contact.linkedin}
-          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all focus-visible:outline-blue-500"
+          aria-label="LinkedIn Profile"
         >
           <Linkedin size={18} /> LinkedIn
         </a>
@@ -58,7 +61,8 @@
       {#if config.contact.email}
         <a
           href="mailto:{config.contact.email}"
-          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all"
+          class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-all focus-visible:outline-blue-500"
+          aria-label="Email {config.name}"
         >
           <Mail size={18} /> Contact
         </a>

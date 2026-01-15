@@ -17,8 +17,8 @@
   <div class="mb-10 inline-block">
     <img
       src={headshot}
-      alt="Profile"
-      class="w-32 h-32 rounded-full mx-auto border-2 border-slate-100 p-1 bg-white shadow-sm"
+      alt="Headshot of {config.name}"
+      class="w-48 h-48 rounded-full mx-auto border-2 border-slate-100 p-1 bg-white shadow-sm"
     />
   </div>
 
@@ -51,7 +51,8 @@
         href={config.contact.github}
         target="_blank"
         rel="noreferrer"
-        class="text-slate-400 hover:text-slate-900 transition-colors"
+        class="text-slate-400 hover:text-slate-900 transition-colors focus-visible:outline-blue-500 rounded p-1"
+        aria-label="GitHub Profile"
       >
         <Github size={20} />
       </a>
@@ -61,7 +62,8 @@
         href={config.contact.twitter}
         target="_blank"
         rel="noreferrer"
-        class="text-slate-400 hover:text-slate-900 transition-colors"
+        class="text-slate-400 hover:text-slate-900 transition-colors focus-visible:outline-blue-500 rounded p-1"
+        aria-label="Twitter Profile"
       >
         <Twitter size={20} />
       </a>
@@ -71,7 +73,8 @@
         href={config.contact.linkedin}
         target="_blank"
         rel="noreferrer"
-        class="text-slate-400 hover:text-slate-900 transition-colors"
+        class="text-slate-400 hover:text-slate-900 transition-colors focus-visible:outline-blue-500 rounded p-1"
+        aria-label="LinkedIn Profile"
       >
         <Linkedin size={20} />
       </a>
@@ -79,7 +82,8 @@
     {#if config.contact.email}
       <a
         href="mailto:{config.contact.email}"
-        class="text-slate-400 hover:text-slate-900 transition-colors"
+        class="text-slate-400 hover:text-slate-900 transition-colors focus-visible:outline-blue-500 rounded p-1"
+        aria-label="Email {config.name}"
       >
         <Mail size={20} />
       </a>
@@ -96,7 +100,7 @@
     </div>
     <a
       href="/blog/{featuredPost.slug}"
-      class="block group p-8 rounded-2xl border border-slate-100 bg-slate-50/30 hover:bg-white hover:border-slate-200 transition-all"
+      class="block group p-6 sm:p-8 rounded-2xl border border-slate-100 bg-slate-50/30 hover:bg-white hover:border-slate-200 transition-all"
     >
       <span class="text-xs text-slate-400 mb-2 block"
         >{dayjs(featuredPost.date).format("MMMM D, YYYY")}</span
