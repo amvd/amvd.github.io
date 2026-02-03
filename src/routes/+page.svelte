@@ -18,6 +18,8 @@
     <enhanced:img
       src={headshot}
       alt="Headshot of {config.fullName}"
+      fetchpriority="high"
+      loading="eager"
       class="w-48 h-48 rounded-full mx-auto border-2 border-slate-100 p-1 bg-white shadow-sm"
     />
   </div>
