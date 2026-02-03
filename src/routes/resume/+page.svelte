@@ -5,17 +5,29 @@
   const resumeInfo = {
     name: "Armand De Asis",
     location: "Denver, Colorado 80204",
-    email: "hello@armand.io",
+    email: "armand.deas@gmail.com",
+    phone: "(720) 443-0593",
+    summary:
+      "Senior Full-Stack Engineer with 8+ years of experience building scalable applications in high-stakes FinTech and consumer-focused environments. Specialist in performance optimization, complex integrations, and large-scale framework migrations (JS/TS/Ruby).",
     experience: [
       {
         company: "Northstar Investment Advisory",
         period: "Apr 2021 – Mar 2024",
         role: "Senior Software Engineer",
         achievements: [
-          "Implemented systems to enforce RIA/FINRA/SEC compliance standards across software platform, enabling the company to secure deals with key client companies and provide investment guidance.",
-          "Built various tools for both clients and financial planners including data visualization interfaces to compare and model tax burden scenarios and health insurance plans based on planned utilization.",
-          "Deployed internationalization features across platform to allow the company to expand to international companies and clients, and employ overseas financial advisors.",
-          "Collaborated directly with financial advisors, sales, and success teams to build tools and interfaces to manage data across clients and curate tailored guidance incorporating factors such as specialized employee benefits and equity grants, with data provided from employers.",
+          "Deployed financial data visualization tools and tax-burden scenario calculators used by dozens of advisors.",
+          "Enabled international expansion through platform-wide overhaul of permissions and localization.",
+          "Optimized SQL/ORM queries and caching, improving data ingestion speed by 400%.",
+          "Collaborated with advisors and sales teams to build data management tools, saving significant weekly labor.",
+          "Implemented systems to ensure internal compliance with RIA/FINRA/SEC standards.",
+        ],
+      },
+      {
+        company: "Freelance",
+        period: "Feb 2020 – Oct 2020",
+        role: "Software Engineer",
+        achievements: [
+          "Managed client projects, including an inventory display system and data analytics for a published research book.",
         ],
       },
       {
@@ -23,8 +35,8 @@
         period: "Apr 2017 – Aug 2019",
         role: "Software Engineer",
         achievements: [
-          "Developed various features used for qualitative consumer research projects commissioned by clients from Google to Intuit.",
-          "Studied interactions and interviews between researchers and research participants to refine tools and interfaces for performance and ease of use.",
+          "Spearheaded development of a video interview product with automatic transcript generation and video editing.",
+          "Developed algorithms for plaintext copyediting of audio transcripts while maintaining metadata/timestamps.",
         ],
       },
       {
@@ -32,7 +44,7 @@
         period: "Jun 2016 – Mar 2017",
         role: "Software Engineer",
         achievements: [
-          "Built a platform to aggregate and compare automobile repair services and costs across various repair shops, exploring integrations to point-of-service systems to allow for direct scheduling from one centralized application.",
+          "Developed full-stack features and managed AWS DevOps for an auto service scheduler.",
         ],
       },
       {
@@ -40,7 +52,7 @@
         period: "Dec 2015 – Mar 2016",
         role: "Software Engineer",
         achievements: [
-          "Developed an application to allow seamless monitoring of medical patients by healthcare providers, integrating biometric data from consumer health monitoring devices.",
+          "Integrated biometric data from consumer health monitoring devices for reporting to providers.",
         ],
       },
     ],
@@ -49,17 +61,21 @@
         school: "Baldwin Wallace University",
         location: "Berea, OH",
         degree: "B.S. Neuroscience, Psychology, with honors",
-        coursework:
-          "Elements of Statistics, Data Analysis using PASW, Human Relations & Group Dynamics, Calculus I",
       },
     ],
     skills: {
       technical: [
-        "Python",
         "Ruby",
-        "JavaScript",
         "TypeScript",
-        "Data Analysis",
+        "JavaScript",
+        "Elixir",
+        "SQL",
+        "PHP",
+        "Ruby on Rails",
+        "React.js",
+        "Svelte",
+        "PostgreSQL",
+        "GraphQL",
       ],
       interests: [
         "Swing dancing",
@@ -114,6 +130,13 @@
       Download PDF
     </a>
   </header>
+
+  <!-- Summary -->
+  <section class="mb-16">
+    <p class="text-slate-600 leading-relaxed text-lg italic">
+      {resumeInfo.summary}
+    </p>
+  </section>
 
   <!-- Experience -->
   <section class="mb-16">
@@ -173,10 +196,6 @@
           <span class="text-sm font-medium text-slate-400">{edu.location}</span>
         </div>
         <p class="text-slate-700 font-medium mb-2">{edu.degree}</p>
-        <p class="text-sm text-slate-500">
-          <span class="font-semibold text-slate-600">Coursework:</span>
-          {edu.coursework}
-        </p>
       </div>
     {/each}
   </section>
