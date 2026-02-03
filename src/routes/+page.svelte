@@ -30,18 +30,27 @@
     {config.description}
   </p>
 
-  <div class="flex flex-wrap justify-center gap-4 mb-16">
-    <a
-      href="/blog"
-      class="px-6 py-2 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 transition-all"
-    >
-      Read Blog
-    </a>
+  <div class="flex flex-wrap justify-center gap-4 mb-4">
     <a
       href="/about"
       class="px-6 py-2 border border-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-50 transition-all"
     >
       About
+    </a>
+    <a
+      href="/blog"
+      class="px-6 py-2 border border-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-50 transition-all"
+    >
+      Blog
+    </a>
+  </div>
+
+  <div class="flex flex-wrap justify-center gap-4 mb-16">
+    <a
+      href="/resume"
+      class="px-6 py-2 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 transition-all"
+    >
+      Resume
     </a>
   </div>
 
