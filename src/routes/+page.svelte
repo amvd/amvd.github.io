@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ArrowRight, Github, Twitter, Mail, Linkedin } from "lucide-svelte";
   import dayjs from "dayjs";
-  import headshot from "$lib/assets/headshot.jpeg";
+  import headshot from "$lib/assets/headshot.jpeg?enhanced";
   import { config } from "$lib/config";
 
   let { data } = $props();
@@ -15,7 +15,7 @@
 
 <section class="max-w-[700px] mx-auto px-6 py-20 text-center">
   <div class="mb-10 inline-block">
-    <img
+    <enhanced:img
       src={headshot}
       alt="Headshot of {config.fullName}"
       class="w-48 h-48 rounded-full mx-auto border-2 border-slate-100 p-1 bg-white shadow-sm"
